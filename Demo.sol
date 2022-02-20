@@ -26,6 +26,8 @@ contract Lottery {
 
     function getWinner() public {
         require(msg.sender==Manager);
+        require (players.length >= 3);
+
         uint r=random();
         uint index = r % Player.length;
         address payable winner;
